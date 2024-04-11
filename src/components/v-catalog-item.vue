@@ -4,7 +4,7 @@
     <p>{{ product_data.name }}</p>
     <p>{{ product_data.price }}</p>
     <p>{{ product_data.about }}</p>
-    <button @click="addToCart">+ В корзину</button>
+    <button @click="addToCart">Add to cart</button>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div class="v-catalog">
     <h1>Catalog</h1>
     <vCatalogItem
-      v-for="product in products"
+      v-for="product in PRODUCTS"
       :key="product.article"
       :product_data="product"
       @add-to-cart="onAddToCartEvent"
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import vCatalogItem from './v-catalog-item.vue'
 
 export default {
@@ -83,10 +84,22 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapGetters(['PRODUCTS'])
+  },
   methods: {
+    ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_CART']),
+
     onAddToCartEvent(product_data) {
-      console.log(product_data)
+      this.ADD_TO_CART(product_data)
     }
+  },
+  mounted() {
+    this.GET_PRODUCTS_FROM_API().then((response) => {
+      if (response.data) {
+        console.log('Data fetched')
+      }
+    })
   }
 }
 </script>
