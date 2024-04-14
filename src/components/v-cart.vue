@@ -1,7 +1,11 @@
 <template>
   <div class="v-cart">
-    <h1>Cart</h1>
+    <h4>Cart</h4>
+    <router-link :to="{ name: 'catalog' }">
+      <div class="v-cart__link_to_catalog waves-effect waves-light btn purple">Back to catalog</div>
+    </router-link>
     <vCartItem v-for="item in CART" :key="item.article" :product_data="item" />
+    <p v-if="!CART.length">The cart is empty</p>
   </div>
 </template>
 
@@ -15,7 +19,7 @@ export default {
     vCartItem
   },
   computed: {
-    ...mapGetters(['CART'])
+    ...mapGetters(['CART', 'CART_TOTAL'])
   },
   props: {
     cart_data: {

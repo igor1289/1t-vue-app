@@ -1,11 +1,18 @@
 <template>
-  <div class="v-cart-item">
-    <img class="v-cart-item__image" :src="'/images/' + product_data.image" alt="Picture" />
-    <p>{{ product_data.name }}</p>
-    <p>{{ product_data.price }}</p>
-    <p>{{ product_data.about }}</p>
-    <p>Count: {{ product_data.count }}</p>
-    <button @click="removeFromCart(product_data.article)">Remove from cart</button>
+  <div class="card">
+    <div class="card-content row">
+      <img class="col" :src="'/images/' + product_data.image" alt="Picture" />
+      <h5>{{ product_data.name }}</h5>
+      <p>{{ product_data.price }}</p>
+      <p>{{ product_data.about }}</p>
+      <p>Count: {{ product_data.count }}</p>
+      <button
+        @click="removeFromCart(product_data.article)"
+        class="waves-effect waves-light btn purple"
+      >
+        Remove
+      </button>
+    </div>
   </div>
 </template>
 

@@ -12,6 +12,15 @@ export default createStore({
     },
     CART(state) {
       return state.cart
+    },
+    CART_TOTAL(state) {
+      let count = 0
+
+      state.cart.forEach((item) => {
+        count += item.count
+      })
+
+      return count
     }
   },
   mutations: {

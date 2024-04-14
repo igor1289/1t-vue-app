@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1>Shop</h1>
     <vMainWrapper />
   </div>
@@ -19,4 +19,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss"></style>

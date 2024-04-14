@@ -1,4 +1,4 @@
-// import './assets/main.css'
+import 'materialize-css/dist/css/materialize.min.css'
 
 import router from './router'
 import store from './store'

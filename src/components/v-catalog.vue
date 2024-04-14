@@ -1,12 +1,20 @@
 <template>
   <div class="v-catalog">
-    <h1>Catalog</h1>
-    <vCatalogItem
-      v-for="product in PRODUCTS"
-      :key="product.article"
-      :product_data="product"
-      @add-to-cart="onAddToCartEvent"
-    />
+    <h4>Catalog</h4>
+    <router-link :to="{ name: 'cart' }">
+      <div class="v-catalog__link_to_cart waves-effect waves-light btn purple">
+        Cart: {{ CART_TOTAL }}
+      </div>
+    </router-link>
+
+    <div class="row">
+      <vCatalogItem
+        v-for="product in PRODUCTS"
+        :key="product.article"
+        :product_data="product"
+        @add-to-cart="onAddToCartEvent"
+      />
+    </div>
   </div>
 </template>
 
@@ -85,7 +93,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['PRODUCTS'])
+    ...mapGetters(['PRODUCTS', 'CART', 'CART_TOTAL'])
   },
   methods: {
     ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_CART']),
